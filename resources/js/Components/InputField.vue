@@ -16,7 +16,7 @@ const inputId = computed(() => props.id || props.label.toLowerCase().replace(/\s
 </script>
 
 <template>
-   <div>
+<div>
     <label :for="inputId" class="block text-sm font-bold text-[#053B50] mb-1 text-right">
         {{ label }}
     </label>

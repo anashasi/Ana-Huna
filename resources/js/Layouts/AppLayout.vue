@@ -15,12 +15,10 @@ function logout() {
     <header class="bg-[#176B87] shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-4 lg:px-4">
             <div class="flex justify-between  items-center h-16">
-            <!-- Logo -->
                 <div class="flex-shrink-0">
                 <a href="/" class="text-xl font-bold text-gray-300">AnaHuna</a>
                 </div>
-
-            <!-- Navigation Links -->
+                
             <nav class="hidden md:flex space-x-4 ml-12">
                 <a href="/aboutus" class="text-gray-200 hover:text-[#64CCC5]">من نحن</a>
                 <a href="/ourservices" class="text-gray-200 hover:text-[#64CCC5]">خدماتنا</a>

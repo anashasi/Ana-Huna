@@ -10,7 +10,6 @@ Route::get('/aboutus', [HomePageController::class,'aboutus']);
 Route::get('/ourservices', [HomePageController::class,'ourservices']);
 Route::get('/signtotext', [SessionController::class,'signtotext'])->name('signtotext');
 
-//signIn signUp
 Route::get('/register',function(){
     return Inertia::render('Register');
 });

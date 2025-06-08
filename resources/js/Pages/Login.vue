@@ -25,7 +25,6 @@ function login(){
             </div>
 
             <form @submit.prevent="login" class="space-y-6">
-                <!-- Email Field -->
                 <InputField
                     label="البريد الالكتروني"
                     type="email"
@@ -33,8 +32,6 @@ function login(){
                     v-model="form.email"
                     :error="form.errors.email"
                 />
-
-                    <!-- Password Field -->
                 <InputField
                     label="كلمة السر"
                     type="password"
@@ -42,8 +39,6 @@ function login(){
                     v-model="form.password"
                     :error="form.errors.password"
                 />
-
-                <!-- Action Buttons -->
                 <div class="flex justify-end gap-3 pt-4">
                 <button
                     type="button"

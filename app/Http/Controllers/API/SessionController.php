@@ -28,7 +28,6 @@ class SessionController extends Controller
 
         $text = $request->input('text');
 
-        // First, define the SSML string
                     $ssml = <<<XML
             <speak version='1.0' xml:lang='ar-SA'>
             <voice xml:lang='ar-JO' xml:gender='Male' name='ar-JO-TaimNeural'>
@@ -36,8 +35,6 @@ class SessionController extends Controller
             </voice>
             </speak>
         XML;
-
-        // Now, use it
         $response = Http::withHeaders([
             'Ocp-Apim-Subscription-Key' => $apiKey,
             'Content-Type' => 'application/ssml+xml',

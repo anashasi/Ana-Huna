@@ -4,7 +4,7 @@ import PrimaryButton from '../Components/PrimaryButton.vue'
 import AppLayout from '../Layouts/AppLayout.vue'
 
 const props = defineProps({
-  LLM: Boolean // or whatever type it is
+  LLM: Boolean 
 });
 
 const cameraStatus=ref('');
@@ -95,7 +95,7 @@ function startStreaming(){
 }
 
 async function correctSentence(sentence,isLLM) {
-  const apiKey = 'AIzaSyAymb7h68s42zt6xY7jmJMBUjqPiMyU27M'; // Replace with your Gemini API key
+  const apiKey = 'AIzaSyAymb7h68s42zt6xY7jmJMBUjqPiMyU27M'; 
   const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
   let prompt='';
   if(isLLM){
@@ -163,10 +163,7 @@ function clearLastWord(){
 
 async function toVoice(sentence) {
   try {
-    // Get the CSRF token from meta tag
     const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
-
-    // Call your Laravel route with fetch
     const response = await fetch('generate-speech', {
       method: 'POST',
       headers: {
@@ -179,11 +176,7 @@ async function toVoice(sentence) {
     if (!response.ok) {
       throw new Error('Failed to generate speech');
     }
-
-    // Get the audio data as a blob
     const audioBlob = await response.blob();
-
-    // Create URL and play audio
     const audioUrl = URL.createObjectURL(audioBlob);
     const audio = new Audio(audioUrl);
     audio.play();
@@ -192,8 +185,6 @@ async function toVoice(sentence) {
   }
 }
 
-
-
 </script>
 
 
@@ -201,7 +192,6 @@ async function toVoice(sentence) {
     <AppLayout/>
     
   <div class="flex justify-center items-start gap-6 p-7 flex-wrap md:flex-nowrap  min-h-screen ">
-    <!-- 🎥 Left: Live Video -->
     <div>
       <div class="border-1 border-[#64CCC5] rounded-xl shadow-lg overflow-hidden" style="width: 800px; position: relative;">
         <video
@@ -211,7 +201,6 @@ async function toVoice(sentence) {
         playsinline
         class="w-full h-[500px] object-cover"
         ></video>
-        <!-- Flex container to place paragraphs side by side -->\
         <div class="absolute bottom-0 w-full bg-opacity-70 bg-[#176B87] text-gray-100 text-sm p-2 flex justify-between items-center">
           <p class="mx-2"> <strong>التوقع:</strong> {{ predictionText }}</p>
           <p class="mx-2"><strong>الاطارات: </strong>{{ numOfFrames }}</p>
@@ -229,9 +218,7 @@ async function toVoice(sentence) {
       </div>
     </div>
 
-    <!-- 💬 Right: Live Chat & Controls -->
     <div class="flex flex-col" style="width: 350px;">
-      <!-- Live Chat Box -->
       <div class="flex flex-col bg-[#EEEEEE] rounded-xl border-1 border-[#64CCC5] shadow-md h-[450px] overflow-hidden">
         <div class="bg-[#176B87] text-center px-4 py-2 font-semibold text-[#f1f1f1] border-b">
           الترجمة
@@ -242,13 +229,10 @@ async function toVoice(sentence) {
             :key="index"
             class="space-y-2"
           >
-          <!-- User message + button (in the same row) -->
           <div class="flex justify-start items-center space-x-reverse space-x-2">
-            <!-- User message -->
             <p class="bg-blue-500 text-white px-4 py-2 rounded-xl max-w-[80%] shadow text-right">
               {{ sentence }}
             </p>
-            <!-- Button -->
             <button
               @click="toVoice(sentence)"
               class="p-2 text-gray-700 hover:text-blue-500"
@@ -261,7 +245,6 @@ async function toVoice(sentence) {
               </svg>
             </button>
           </div>
-        <!-- Bot Response (Left Aligned, below the user sentence) -->
         <div v-if="llmResponseArray[index]" class="flex justify-end">
           <p class="bg-gray-200 text-black px-4 py-2 rounded-xl max-w-[80%] shadow text-right">
             {{ llmResponseArray[index] }}
@@ -270,10 +253,7 @@ async function toVoice(sentence) {
       </div>
 </div>
 
-
       </div>
-
-      <!-- Control Buttons -->
       <div class="bg-[#176B87] rounded-xl border-1 border-[#64CCC5] p-4 flex justify-center space-x-4 mt-2">
         <PrimaryButton @click="clearLastWord()">حذف آخر كلمة</PrimaryButton>
         <PrimaryButton @click="stopStreaming()">إنهاء</PrimaryButton>

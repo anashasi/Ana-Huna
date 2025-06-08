@@ -33,8 +33,6 @@ import AppLayout from '../Layouts/AppLayout.vue';
                 </a>
                 <p class="text-lg font-medium">علي النجداوي</p>
             </div>
-
-            <!-- انس الحاسي -->
             <div class="flex items-center justify-end bg-[#053B50] rounded-xl p-4 hover:bg-[#052150]  transition space-x-2">
                 <a href="https://www.linkedin.com/in/anas-alhasi-395340312" target="_blank" rel="noopener noreferrer" class="ml-4">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 48 48" class="hover:scale-110 transition-transform">
